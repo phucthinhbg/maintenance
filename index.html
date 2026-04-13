@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đang bảo trì</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100vh;
+}
+
+.container{
+  text-align:center;
+  background:rgba(255,255,255,0.05);
+  padding:40px;
+  border-radius:20px;
+  backdrop-filter:blur(10px);
+  width:90%;
+  max-width:650px;
+}
+
+h1{font-size:32px;margin-bottom:10px;}
+p{opacity:0.8;margin-bottom:20px;}
+
+.countdown{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin:20px 0;
+}
+
+.box{
+  background:rgba(255,255,255,0.1);
+  padding:15px;
+  border-radius:10px;
+  width:70px;
+}
+
+.box span{
+  font-size:20px;
+  font-weight:bold;
+}
+
+.btn{
+  display:inline-block;
+  margin:8px;
+  padding:10px 18px;
+  border-radius:30px;
+  text-decoration:none;
+  color:white;
+  background:linear-gradient(to right,#0072ff,#00c6ff);
+}
+
+.form input{
+  width:100%;
+  padding:10px;
+  margin:5px 0;
+  border:none;
+  border-radius:8px;
+}
+
+.chat{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:260px;
+  background:white;
+  color:black;
+  border-radius:15px;
+  overflow:hidden;
+}
+
+.chat-header{
+  background:#0072ff;
+  color:white;
+  padding:10px;
+}
+
+.chat-body{
+  padding:10px;
+  height:150px;
+  overflow:auto;
+  font-size:13px;
+}
+
+.chat-input{
+  display:flex;
+}
+
+.chat-input input{
+  flex:1;
+  border:none;
+  padding:8px;
+}
+
+.chat-input button{
+  border:none;
+  background:#0072ff;
+  color:white;
+  padding:8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>🔧 Website đang nâng cấp</h1>
+  <p>Hệ thống phụ tùng đang được nâng cấp. Quay lại sau:</p>
+
+  <div class="countdown">
+    <div class="box"><span id="d">0</span><br>Ngày</div>
+    <div class="box"><span id="h">0</span><br>Giờ</div>
+    <div class="box"><span id="m">0</span><br>Phút</div>
+    <div class="box"><span id="s">0</span><br>Giây</div>
+  </div>
+
+  <!-- CTA -->
+  <a class="btn" href="tel:0900000000">📞 Gọi ngay</a>
+  <a class="btn" href="https://zalo.me/0900000000">💬 Zalo</a>
+
+  <!-- FORM -->
+  <div class="form">
+    <h3>Để lại thông tin</h3>
+    <input placeholder="Tên của bạn">
+    <input placeholder="Số điện thoại">
+    <button class="btn">Gửi</button>
+  </div>
+</div>
+
+<!-- CHAT AI -->
+<div class="chat">
+  <div class="chat-header">🤖 Tư vấn nhanh</div>
+  <div class="chat-body" id="chatBody">
+    Xin chào! Bạn cần tìm phụ tùng gì?
+  </div>
+  <div class="chat-input">
+    <input id="msg">
+    <button onclick="send()">Gửi</button>
+  </div>
+</div>
+
+<script>
+// COUNTDOWN
+const end = new Date("2026-12-31 23:59:59").getTime();
+
+setInterval(()=>{
+  const now = new Date().getTime();
+  const t = end - now;
+
+  document.getElementById("d").innerText = Math.floor(t/(1000*60*60*24));
+  document.getElementById("h").innerText = Math.floor((t%(1000*60*60*24))/(1000*60*60));
+  document.getElementById("m").innerText = Math.floor((t%(1000*60*60))/(1000*60));
+  document.getElementById("s").innerText = Math.floor((t%(1000*60))/1000);
+},1000);
+
+// CHAT DEMO
+function send(){
+  let input = document.getElementById("msg");
+  let chat = document.getElementById("chatBody");
+
+  chat.innerHTML += "<div>Bạn: "+input.value+"</div>";
+
+  setTimeout(()=>{
+    chat.innerHTML += "<div>AI: Shop có đầy đủ phụ tùng xe máy 👍</div>";
+    chat.scrollTop = chat.scrollHeight;
+  },500);
+
+  input.value="";
+}
+</script>
+
+</body>
+</html>
