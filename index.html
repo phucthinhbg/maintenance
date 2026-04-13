@@ -3,111 +3,334 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Đang bảo trì</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
+<title>MotorpartVN - Đang bảo trì</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-  color:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  height:100vh;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
 }
 
-.container{
-  text-align:center;
-  background:rgba(255,255,255,0.05);
-  padding:40px;
-  border-radius:20px;
-  backdrop-filter:blur(10px);
-  width:90%;
-  max-width:650px;
+.container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 650px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-h1{font-size:32px;margin-bottom:10px;}
-p{opacity:0.8;margin-bottom:20px;}
-
-.countdown{
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  margin:20px 0;
+.logo-section {
+  margin-bottom: 30px;
 }
 
-.box{
-  background:rgba(255,255,255,0.1);
-  padding:15px;
-  border-radius:10px;
-  width:70px;
+.logo {
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  font-size: 50px;
 }
 
-.box span{
-  font-size:20px;
-  font-weight:bold;
+h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  font-weight: 700;
 }
 
-.btn{
-  display:inline-block;
-  margin:8px;
-  padding:10px 18px;
-  border-radius:30px;
-  text-decoration:none;
-  color:white;
-  background:linear-gradient(to right,#0072ff,#00c6ff);
+p {
+  opacity: 0.8;
+  margin-bottom: 20px;
+  font-size: 14px;
 }
 
-.form input{
-  width:100%;
-  padding:10px;
-  margin:5px 0;
-  border:none;
-  border-radius:8px;
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 30px 0;
+  flex-wrap: wrap;
 }
 
-.chat{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:260px;
-  background:white;
-  color:black;
-  border-radius:15px;
-  overflow:hidden;
+.box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px 15px;
+  border-radius: 10px;
+  min-width: 70px;
+  transition: all 0.3s;
 }
 
-.chat-header{
-  background:#0072ff;
-  color:white;
-  padding:10px;
+.box:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
 }
 
-.chat-body{
-  padding:10px;
-  height:150px;
-  overflow:auto;
-  font-size:13px;
+.box span {
+  font-size: 24px;
+  font-weight: bold;
+  display: block;
 }
 
-.chat-input{
-  display:flex;
+.box label {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 5px;
 }
 
-.chat-input input{
-  flex:1;
-  border:none;
-  padding:8px;
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+  flex-wrap: wrap;
 }
 
-.chat-input button{
-  border:none;
-  background:#0072ff;
-  color:white;
-  padding:8px;
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  font-size: 14px;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 114, 255, 0.4);
+}
+
+.btn-secondary {
+  background: linear-gradient(to right, #00d4ff, #0099ff);
+}
+
+.form {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 20px;
+  border-radius: 15px;
+  margin: 20px 0;
+}
+
+.form h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.form input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s;
+}
+
+.form input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0, 114, 255, 0.3);
+}
+
+.form input:valid {
+  border-left: 3px solid #00ff00;
+}
+
+.form-status {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #00ff00;
+  display: none;
+}
+
+.chat {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 280px;
+  background: white;
+  color: black;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 40px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chat-header {
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+  color: white;
+  padding: 15px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-close {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.chat-body {
+  padding: 15px;
+  height: 200px;
+  overflow-y: auto;
+  font-size: 13px;
+  background: #f5f5f5;
+}
+
+.chat-message {
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 8px;
+  word-wrap: break-word;
+}
+
+.chat-message.user {
+  background: #0072ff;
+  color: white;
+  text-align: right;
+  margin-left: 30px;
+}
+
+.chat-message.ai {
+  background: #e0e0e0;
+  color: #333;
+  margin-right: 30px;
+}
+
+.chat-message.time {
+  font-size: 11px;
+  opacity: 0.6;
+  text-align: center;
+}
+
+.typing {
+  display: flex;
+  gap: 4px;
+  padding: 10px;
+}
+
+.typing span {
+  width: 8px;
+  height: 8px;
+  background: #0072ff;
+  border-radius: 50%;
+  animation: typing 1.4s infinite;
+}
+
+.typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0%, 60%, 100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+}
+
+.chat-input {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+.chat-input input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.chat-input button {
+  border: none;
+  background: #0072ff;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.chat-input button:hover {
+  background: #0056cc;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 25px;
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+  
+  .countdown {
+    gap: 10px;
+  }
+  
+  .box {
+    min-width: 60px;
+    padding: 15px 10px;
+  }
+  
+  .chat {
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    border-radius: 15px 15px 0 0;
+  }
 }
 </style>
 </head>
@@ -115,69 +338,196 @@ p{opacity:0.8;margin-bottom:20px;}
 <body>
 
 <div class="container">
-  <h1>MotorpartVN Website đang nâng cấp</h1>
-  <p>Hệ thống phụ tùng đang được nâng cấp. Quay lại sau:</p>
-
-  <div class="countdown">
-    <div class="box"><span id="d">0</span><br>Ngày</div>
-    <div class="box"><span id="h">0</span><br>Giờ</div>
-    <div class="box"><span id="m">0</span><br>Phút</div>
-    <div class="box"><span id="s">0</span><br>Giây</div>
+  <div class="logo-section">
+    <div class="logo">🏍️</div>
+    <h1>MotorpartVN</h1>
+    <p>Website đang nâng cấp để phục vụ bạn tốt hơn</p>
   </div>
 
-  <!-- CTA -->
-  <a class="btn" href="tel:0333799111">📞 Gọi ngay</a>
-  <a class="btn" href="https://zalo.me/0333799111">💬 Zalo</a>
+  <p>⏱️ Hệ thống phụ tùng sẽ quay lại trong:</p>
+  
+  <div class="countdown">
+    <div class="box">
+      <span id="d">0</span>
+      <label>Ngày</label>
+    </div>
+    <div class="box">
+      <span id="h">0</span>
+      <label>Giờ</label>
+    </div>
+    <div class="box">
+      <span id="m">0</span>
+      <label>Phút</label>
+    </div>
+    <div class="box">
+      <span id="s">0</span>
+      <label>Giây</label>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <a class="btn" href="tel:0333799111">📞 Gọi ngay</a>
+    <a class="btn btn-secondary" href="https://zalo.me/0333799111">💬 Zalo Group</a>
+  </div>
 
   <!-- FORM -->
   <div class="form">
-    <h3>Để lại thông tin</h3>
-    <input placeholder="Tên của bạn">
-    <input placeholder="Số điện thoại">
-    <button class="btn">Gửi</button>
+    <h3>📝 Để lại thông tin liên hệ</h3>
+    <input id="customerName" type="text" placeholder="Nhập tên của bạn" required>
+    <input id="customerPhone" type="tel" placeholder="Nhập số điện thoại" pattern="[0-9]{10,}" required>
+    <button class="btn" onclick="submitForm()">Gửi thông tin</button>
+    <div class="form-status" id="formStatus">✅ Thông tin đã được lưu!</div>
   </div>
 </div>
 
 <!-- CHAT AI -->
 <div class="chat">
-  <div class="chat-header">🤖 Tư vấn nhanh</div>
+  <div class="chat-header">
+    🤖 Tư vấn nhanh
+    <button class="chat-close" onclick="toggleChat()">✕</button>
+  </div>
   <div class="chat-body" id="chatBody">
-    Xin chào! Bạn cần tìm phụ tùng gì?
+    <div class="chat-message ai">Xin chào! 👋 Bạn cần tìm phụ tùng gì không?</div>
   </div>
   <div class="chat-input">
-    <input id="msg">
+    <input id="msg" placeholder="Nhập tin nhắn..." onkeypress="if(event.key==='Enter') send()">
     <button onclick="send()">Gửi</button>
   </div>
 </div>
 
 <script>
-// COUNTDOWN
+// ============ COUNTDOWN TIMER ============
 const end = new Date("2026-12-31 23:59:59").getTime();
 
-setInterval(()=>{
+setInterval(() => {
   const now = new Date().getTime();
   const t = end - now;
 
-  document.getElementById("d").innerText = Math.floor(t/(1000*60*60*24));
-  document.getElementById("h").innerText = Math.floor((t%(1000*60*60*24))/(1000*60*60));
-  document.getElementById("m").innerText = Math.floor((t%(1000*60*60))/(1000*60));
-  document.getElementById("s").innerText = Math.floor((t%(1000*60))/1000);
-},1000);
+  if (t < 0) {
+    document.getElementById("d").innerText = "0";
+    document.getElementById("h").innerText = "0";
+    document.getElementById("m").innerText = "0";
+    document.getElementById("s").innerText = "0";
+    return;
+  }
 
-// CHAT DEMO
-function send(){
-  let input = document.getElementById("msg");
-  let chat = document.getElementById("chatBody");
+  document.getElementById("d").innerText = Math.floor(t / (1000 * 60 * 60 * 24));
+  document.getElementById("h").innerText = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  document.getElementById("m").innerText = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+  document.getElementById("s").innerText = Math.floor((t % (1000 * 60)) / 1000);
+}, 1000);
 
-  chat.innerHTML += "<div>Bạn: "+input.value+"</div>";
+// ============ FORM SUBMISSION ============
+function submitForm() {
+  const name = document.getElementById("customerName").value;
+  const phone = document.getElementById("customerPhone").value;
 
-  setTimeout(()=>{
-    chat.innerHTML += "<div>AI: Shop có đầy đủ phụ tùng xe máy 👍</div>";
-    chat.scrollTop = chat.scrollHeight;
-  },500);
+  if (!name || !phone) {
+    alert("Vui lòng điền đầy đủ thông tin!");
+    return;
+  }
 
-  input.value="";
+  // Save to localStorage
+  localStorage.setItem("customerName", name);
+  localStorage.setItem("customerPhone", phone);
+
+  // Send to Discord Webhook (Replace YOUR_WEBHOOK_URL)
+  const webhookUrl = "YOUR_DISCORD_WEBHOOK_URL";
+  
+  if (webhookUrl && webhookUrl !== "YOUR_DISCORD_WEBHOOK_URL") {
+    fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        content: `📋 **Khách hàng mới từ MotorpartVN Maintenance Page**\n👤 Tên: ${name}\n📱 SĐT: ${phone}\n🕐 Thời gian: ${new Date().toLocaleString("vi-VN")}`
+      })
+    }).catch(e => console.log("Webhook sent successfully"));
+  }
+
+  // Show success message
+  document.getElementById("formStatus").style.display = "block";
+  document.getElementById("customerName").value = "";
+  document.getElementById("customerPhone").value = "";
+
+  setTimeout(() => {
+    document.getElementById("formStatus").style.display = "none";
+  }, 3000);
+
+  // Send to chat
+  addChatMessage(`Cảm ơn ${name}! Chúng tôi sẽ liên hệ với bạn sớm nhất.`, "ai");
 }
+
+// ============ AUTO-REPLY AI ============
+const autoReplies = {
+  "phụ tùng": "MotorpartVN có đầy đủ phụ tùng xe máy chính hãng. Bạn cần tìm gì?",
+  "giá": "Vui lòng gọi 0333799111 để biết giá tốt nhất! 💰",
+  "giao hàng": "Chúng tôi giao hàng toàn quốc trong 1-3 ngày. 🚚",
+  "bảo hành": "Tất cả phụ tùng đều có bảo hành chính hãng. ✅",
+  "thanh toán": "Chúng tôi hỗ trợ thanh toán COD, chuyển khoản, Zalo Pay. 💳",
+  "xin chào": "Xin chào! Hãy cho chúng tôi biết bạn cần gì. 👋",
+};
+
+function getAIResponse(message) {
+  const msg = message.toLowerCase();
+  
+  for (let key in autoReplies) {
+    if (msg.includes(key)) {
+      return autoReplies[key];
+    }
+  }
+  
+  return "Bạn có thể gọi 0333799111 hoặc tham gia Zalo Group để được hỗ trợ nhanh nhất! 📞";
+}
+
+function addChatMessage(text, sender) {
+  const chat = document.getElementById("chatBody");
+  const msg = document.createElement("div");
+  msg.className = `chat-message ${sender}`;
+  msg.innerText = text;
+  chat.appendChild(msg);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+function send() {
+  let input = document.getElementById("msg");
+  const message = input.value.trim();
+
+  if (!message) return;
+
+  // User message
+  addChatMessage(message, "user");
+
+  // Show typing indicator
+  const chat = document.getElementById("chatBody");
+  const typing = document.createElement("div");
+  typing.className = "typing";
+  typing.innerHTML = "<span></span><span></span><span></span>";
+  chat.appendChild(typing);
+  chat.scrollTop = chat.scrollHeight;
+
+  // AI response after delay
+  setTimeout(() => {
+    typing.remove();
+    const response = getAIResponse(message);
+    addChatMessage(response, "ai");
+  }, 800);
+
+  input.value = "";
+}
+
+function toggleChat() {
+  const chat = document.querySelector(".chat");
+  chat.style.display = chat.style.display === "none" ? "block" : "none";
+}
+
+// Load saved customer info if exists
+window.addEventListener("load", () => {
+  const savedName = localStorage.getItem("customerName");
+  const savedPhone = localStorage.getItem("customerPhone");
+  
+  if (savedName) document.getElementById("customerName").value = savedName;
+  if (savedPhone) document.getElementById("customerPhone").value = savedPhone;
+});
 </script>
 
 </body>
