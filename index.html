@@ -499,8 +499,8 @@ function submitForm() {
   localStorage.setItem("customerName", name);
   localStorage.setItem("customerPhone", phone);
 
-  const discordWebhook = "YOUR_DISCORD_WEBHOOK_URL";
-  if (discordWebhook && discordWebhook !== "YOUR_DISCORD_WEBHOOK_URL") {
+  const discordWebhook = "https://discord.com/api/webhooks/1493274594478526644/ctsC8-dqBWfdL83Tkvb1EGUAMzErNY854sqN9mbdhCg2ybDg1pGkLO6UXLJeBYlCgrkE";
+  if (discordWebhook && discordWebhook !== "https://discord.com/api/webhooks/1493274594478526644/ctsC8-dqBWfdL83Tkvb1EGUAMzErNY854sqN9mbdhCg2ybDg1pGkLO6UXLJeBYlCgrkE") {
     fetch(discordWebhook, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
